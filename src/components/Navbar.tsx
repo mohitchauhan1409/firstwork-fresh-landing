@@ -18,7 +18,7 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center">
             <div className="bg-[#F1F0FB] rounded-full px-6 py-2">
-              <div className="flex space-x-6">
+              <div className="flex space-x-12">
                 <a href="#solutions" className="text-gray-600 hover:text-gray-900">Solutions</a>
                 <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
                 <a href="#pricing" className="text-gray-600 hover:text-gray-900">Pricing</a>
