@@ -29,9 +29,6 @@ const Hero = () => {
             With Real-Time{" "}
             <span className="relative inline-block">
               <span className="relative z-10">Insights</span>
-              <svg className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 text-primary/10 w-24 h-24" viewBox="0 0 100 100">
-                <path d="M10,50 Q50,10 90,50 Q50,90 10,50" fill="none" stroke="currentColor" strokeWidth="8" />
-              </svg>
             </span>
           </h1>
           
