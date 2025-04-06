@@ -41,7 +41,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto animate-fade-up animation-delay-100">
-            Streamline hiring, automate onboarding, manage workforces and ensure financial well-being with our next-generation HR platform.
+            Alai is a powerful new presentation platform—because storytelling is about sharing ideas, not endless pixel tweaking.
           </p>
 
           <div className="flex justify-center space-x-4 animate-fade-up animation-delay-200">
