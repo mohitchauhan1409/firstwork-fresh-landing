@@ -1,7 +1,15 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Zap, MoreVertical, PlayCircle, TrendingUp, Users, Calendar } from "lucide-react";
+import { Zap, PlayCircle, Volume2, VolumeX } from "lucide-react";
 
 const Hero = () => {
+  const [isMuted, setIsMuted] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleRedirect = () => {
+    window.location.href = "https://getalai.com/";
+  };
+
   return (
     <div className="min-h-screen pt-28 bg-gradient-to-br from-[#F8F9FF] via-white to-[#F8F9FF] relative overflow-hidden">
       {/* Animated background elements */}
@@ -24,11 +32,11 @@ const Hero = () => {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-medium leading-tight mb-6 animate-fade-up tracking-tight">
-            Empower Your HR Management
+            Transform your presentation
             <br />
-            With Real-Time{" "}
+            skills effortlessly{" "}
             <span className="relative inline-block">
-              <span className="relative z-10">Insights</span>
+              <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">with AI</span>
             </span>
           </h1>
           
@@ -37,136 +45,84 @@ const Hero = () => {
           </p>
 
           <div className="flex justify-center space-x-4 animate-fade-up animation-delay-200">
-            <Button className="bg-primary text-white hover:bg-primary/90 rounded-full px-8 py-6 text-lg flex items-center space-x-2">
+            <Button 
+              className="bg-primary text-white hover:bg-primary/90 rounded-full px-8 py-6 text-lg flex items-center space-x-2 shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105"
+              onClick={handleRedirect}
+            >
               <Zap className="w-5 h-5" />
               <span>Join Now</span>
             </Button>
-            <Button variant="outline" className="border-2 hover:bg-gray-50 rounded-full px-8 py-6 text-lg flex items-center space-x-2">
+            <Button 
+              variant="outline" 
+              className="border-2 hover:bg-gray-50 rounded-full px-8 py-6 text-lg flex items-center space-x-2 transition-all duration-300 hover:scale-105"
+              onClick={handleRedirect}
+            >
               <PlayCircle className="w-5 h-5" />
               <span>Book Demo</span>
             </Button>
           </div>
 
-          <div className="mt-20 relative animate-float">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl filter blur-3xl"></div>
-            <div className="relative bg-white/50 backdrop-blur-sm rounded-3xl border border-gray-100 shadow-lg p-8">
-              {/* Dashboard Preview */}
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <div className="flex items-center justify-between mb-8">
-                  <div className="space-y-1">
-                    <h2 className="text-2xl font-semibold">Contracts Status Overview</h2>
-                    <p className="text-gray-500">Track your department's document workflow</p>
-                  </div>
-                  <div className="flex space-x-3">
-                    <Button variant="outline" className="rounded-lg">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      Last 30 days
-                    </Button>
-                    <Button className="rounded-lg">
-                      New Workflow
-                    </Button>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {/* Marketing Card */}
-                  <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 shadow-sm border border-blue-100">
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h3 className="text-lg font-medium mb-1">Marketing</h3>
-                        <div className="flex items-center text-blue-600">
-                          <TrendingUp className="w-4 h-4 mr-1" />
-                          <span className="text-sm">+12.5%</span>
-                        </div>
-                      </div>
-                      <Button variant="ghost" size="icon" className="h-8 w-8">
-                        <MoreVertical className="h-4 w-4" />
-                      </Button>
-                    </div>
-                    <div className="text-3xl font-bold mb-4">120+</div>
-                    <div className="flex items-center gap-2">
-                      <div className="flex -space-x-2">
-                      <img src="https://images.unsplash.com/photo-1738362542910-b06a4f00f024?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Team member" className="w-8 h-8 rounded-full border-2 border-white" />
-                        <img src="https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXQlMjBtYW58ZW58MHx8MHx8fDA%3D" alt="Team member" className="w-8 h-8 rounded-full border-2 border-white" />
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cG9ydHJhaXQlMjBtYW58ZW58MHx8MHx8fDA%3D" alt="Team member" className="w-8 h-8 rounded-full border-2 border-white" />
-                      </div>
-                      <span className="text-sm text-gray-500">+9 others</span>
-                    </div>
-                  </div>
-
-                  {/* Business Card */}
-                  <div className="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 shadow-sm border border-purple-100">
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h3 className="text-lg font-medium mb-1">Business</h3>
-                        <div className="flex items-center text-purple-600">
-                          <TrendingUp className="w-4 h-4 mr-1" />
-                          <span className="text-sm">+8.2%</span>
-                        </div>
-                      </div>
-                      <Button variant="ghost" size="icon" className="h-8 w-8">
-                        <MoreVertical className="h-4 w-4" />
-                      </Button>
-                    </div>
-                    <div className="text-3xl font-bold mb-4">56+</div>
-                    <div className="flex items-center gap-2">
-                      <div className="flex -space-x-2">
-                      <img src="https://images.unsplash.com/photo-1738362542910-b06a4f00f024?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Team member" className="w-8 h-8 rounded-full border-2 border-white" />
-                        <img src="https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXQlMjBtYW58ZW58MHx8MHx8fDA%3D" alt="Team member" className="w-8 h-8 rounded-full border-2 border-white" />
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cG9ydHJhaXQlMjBtYW58ZW58MHx8MHx8fDA%3D" alt="Team member" className="w-8 h-8 rounded-full border-2 border-white" />
-                      </div>
-                      <span className="text-sm text-gray-500">+8 others</span>
+          {/* Enhanced Video Section */}
+          <div className="mt-16 relative animate-fade-up animation-delay-300">
+            {/* Decorative elements */}
+            <div className="absolute -top-6 -left-6 w-12 h-12 bg-purple-100 rounded-full opacity-70"></div>
+            <div className="absolute -bottom-6 -right-6 w-12 h-12 bg-blue-100 rounded-full opacity-70"></div>
+            <div className="absolute top-1/2 -right-3 w-6 h-6 bg-primary/30 rounded-full opacity-70"></div>
+            <div className="absolute top-1/2 -left-3 w-6 h-6 bg-primary/30 rounded-full opacity-70"></div>
+            
+            {/* Glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-purple-500/10 to-blue-500/20 rounded-3xl filter blur-3xl"></div>
+            
+            {/* Main video container */}
+            <div 
+              className="relative rounded-3xl border border-gray-100 shadow-xl overflow-hidden transition-all duration-500"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              {/* Video wrapper with fancy border */}
+              <div className="bg-gradient-to-br from-primary/10 via-purple-500/5 to-blue-500/10 p-1 rounded-3xl">
+                <div className="relative bg-white rounded-2xl overflow-hidden group">
+                  {/* Video element */}
+                  <video 
+                    className="w-full object-cover transition-transform duration-700 ease-in-out transform hover:scale-105"
+                    autoPlay
+                    muted={isMuted}
+                    loop
+                    playsInline
+                  >
+                    <source src="https://kareai.blob.core.windows.net/images/f035852b-2688-4c02-9a73-80e40a4aed69.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  
+                  {/* Video overlay controls */}
+                  <div className={`absolute inset-0 bg-black/0 flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+                    <div className="absolute bottom-4 right-4 flex space-x-3">
+                      {/* Mute/unmute button */}
+                      <button 
+                        onClick={() => setIsMuted(!isMuted)}
+                        className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg hover:bg-white transition-all duration-300"
+                      >
+                        {isMuted ? (
+                          <VolumeX className="w-5 h-5 text-gray-700" />
+                        ) : (
+                          <Volume2 className="w-5 h-5 text-gray-700" />
+                        )}
+                      </button>
+                      
+                      {/* Play/demo button */}
+                      <button 
+                        className="px-4 py-2 rounded-full bg-primary text-white flex items-center space-x-2 shadow-lg hover:bg-primary/90 transition-all duration-300"
+                        onClick={handleRedirect}
+                      >
+                        <PlayCircle className="w-4 h-4" />
+                        <span className="text-sm font-medium">Watch Full Demo</span>
+                      </button>
                     </div>
                   </div>
-
-                  {/* Creative Card */}
-                  <div className="bg-gradient-to-br from-pink-50 to-white rounded-xl p-6 shadow-sm border border-pink-100">
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h3 className="text-lg font-medium mb-1">Creative</h3>
-                        <div className="flex items-center text-pink-600">
-                          <TrendingUp className="w-4 h-4 mr-1" />
-                          <span className="text-sm">+15.7%</span>
-                        </div>
-                      </div>
-                      <Button variant="ghost" size="icon" className="h-8 w-8">
-                        <MoreVertical className="h-4 w-4" />
-                      </Button>
-                    </div>
-                    <div className="text-3xl font-bold mb-4">99+</div>
-                    <div className="flex items-center gap-2">
-                      <div className="flex -space-x-2">
-                      <img src="https://images.unsplash.com/photo-1738362542910-b06a4f00f024?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Team member" className="w-8 h-8 rounded-full border-2 border-white" />
-                        <img src="https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXQlMjBtYW58ZW58MHx8MHx8fDA%3D" alt="Team member" className="w-8 h-8 rounded-full border-2 border-white" />
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cG9ydHJhaXQlMjBtYW58ZW58MHx8MHx8fDA%3D" alt="Team member" className="w-8 h-8 rounded-full border-2 border-white" />
-                      </div>
-                      <span className="text-sm text-gray-500">+5 others</span>
-                    </div>
-                  </div>
-
-                  {/* IT Card */}
-                  <div className="bg-gradient-to-br from-green-50 to-white rounded-xl p-6 shadow-sm border border-green-100">
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h3 className="text-lg font-medium mb-1">IT</h3>
-                        <div className="flex items-center text-green-600">
-                          <TrendingUp className="w-4 h-4 mr-1" />
-                          <span className="text-sm">+10.3%</span>
-                        </div>
-                      </div>
-                      <Button variant="ghost" size="icon" className="h-8 w-8">
-                        <MoreVertical className="h-4 w-4" />
-                      </Button>
-                    </div>
-                    <div className="text-3xl font-bold mb-4">114+</div>
-                    <div className="flex items-center gap-2">
-                      <div className="flex -space-x-2">
-                        <img src="https://images.unsplash.com/photo-1738362542910-b06a4f00f024?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Team member" className="w-8 h-8 rounded-full border-2 border-white" />
-                        <img src="https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXQlMjBtYW58ZW58MHx8MHx8fDA%3D" alt="Team member" className="w-8 h-8 rounded-full border-2 border-white" />
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cG9ydHJhaXQlMjBtYW58ZW58MHx8MHx8fDA%3D" alt="Team member" className="w-8 h-8 rounded-full border-2 border-white" />
-                      </div>
-                      <span className="text-sm text-gray-500">+8 others</span>
-                    </div>
+                  
+                  {/* Floating labels/annotations */}
+                  <div className="absolute top-4 left-4 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-md">
+                    <span className="text-xs font-medium text-primary">AI-Powered Features</span>
                   </div>
                 </div>
               </div>

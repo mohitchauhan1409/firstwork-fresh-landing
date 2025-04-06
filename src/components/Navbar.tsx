@@ -1,41 +1,54 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Globe, ChevronDown } from "lucide-react";
+import { Globe, ChevronDown, MessageSquare } from "lucide-react";
+import { FaDiscord } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleSignIn = () => {
+    window.location.href = "https://app.getalai.com/login";
+  };
+
+  const handleDiscordJoin = () => {
+    window.location.href = "https://discord.com/invite/BnqaQk74hk";
+  };
 
   return (
     <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 py-4">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold">F</div>
-            <span className="text-xl font-medium">Firstwork</span>
+          {/* Logo - Updated to use PNG image from public folder */}
+          <a href="/" className="flex items-center">
+            <img 
+              src="/alai_logo.png" 
+              alt="AI Logo" 
+              className="h-8 w-auto"
+            />
           </a>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center">
-            <div className="bg-[#F1F0FB] rounded-full px-6 py-2">
-              <div className="flex space-x-12">
-                <a href="#solutions" className="text-gray-600 hover:text-gray-900">Solutions</a>
-                <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
-                <a href="#pricing" className="text-gray-600 hover:text-gray-900">Pricing</a>
-                <a href="#resources" className="text-gray-600 hover:text-gray-900">Resources</a>
-              </div>
-            </div>
-          </div>
 
           {/* Right Side Menu */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href="#help" className="text-gray-600 hover:text-gray-900">Help</a>
+            <a 
+              href="https://discord.com/invite/BnqaQk74hk" 
+              className="flex items-center space-x-2 text-gray-600 hover:text-gray-900"
+              onClick={(e) => {
+                e.preventDefault();
+                handleDiscordJoin();
+              }}
+            >
+              <FaDiscord className="w-4 h-4" />
+              <span>Join Discord</span>
+            </a>
             <button className="flex items-center space-x-1 text-gray-600 hover:text-gray-900">
               <Globe className="w-4 h-4" />
               <span>EN</span>
               <ChevronDown className="w-4 h-4" />
             </button>
-            <Button className="bg-primary text-white hover:bg-primary/90 rounded-full px-6">
+            <Button 
+              className="bg-primary text-white hover:bg-primary/90 rounded-full px-6"
+              onClick={handleSignIn}
+            >
               Sign up
             </Button>
           </div>
@@ -56,13 +69,26 @@ const Navbar = () => {
               <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
               <a href="#pricing" className="text-gray-600 hover:text-gray-900">Pricing</a>
               <a href="#resources" className="text-gray-600 hover:text-gray-900">Resources</a>
-              <a href="#help" className="text-gray-600 hover:text-gray-900">Help</a>
+              <a 
+                href="https://discord.com/invite/BnqaQk74hk" 
+                className="flex items-center space-x-2 text-gray-600 hover:text-gray-900"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleDiscordJoin();
+                }}
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>Join Discord</span>
+              </a>
               <button className="flex items-center space-x-1 text-gray-600">
                 <Globe className="w-4 h-4" />
                 <span>EN</span>
                 <ChevronDown className="w-4 h-4" />
               </button>
-              <Button className="bg-primary text-white hover:bg-primary/90 w-full rounded-full">
+              <Button 
+                className="bg-primary text-white hover:bg-primary/90 w-full rounded-full"
+                onClick={handleSignIn}
+              >
                 Sign up
               </Button>
             </div>
